@@ -1,6 +1,6 @@
 {
-  "name": "code-review-toolkit-marketplace",
-  "description": "Code review toolkit marketplace. A collection of code review and software development practice plugins.",
+  "name": "dotneet-marketplace",
+  "description": "Various tools for software development.",
   "owner": {
     "name": "Shinji Yamada",
     "email": "dotneet@gmail.com"
@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "code-review-toolkit",
-      "source": "./",
+      "source": "./code-review-toolkit",
       "description": "Code review toolkit. Includes code review expert for various tech stacks and software development practices.",
       "version": "1.0.0",
       "author": {
