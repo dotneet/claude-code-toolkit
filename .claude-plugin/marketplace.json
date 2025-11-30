@@ -1,0 +1,16 @@
+{
+  "name": "code-review-toolkit-marketplace",
+  "description": "Code review toolkit marketplace. A collection of code review and software development practice plugins.",
+  "plugins": [
+    {
+      "name": "code-review-toolkit",
+      "path": ".",
+      "description": "Code review toolkit. Includes code review expert for various tech stacks and software development practices.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Shinji Yamada"
+      },
+      "tags": ["code-review", "typescript", "react", "architecture", "modularization"]
+    }
+  ]
+}
