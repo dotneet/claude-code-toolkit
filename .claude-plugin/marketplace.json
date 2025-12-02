@@ -7,8 +7,8 @@
   },
   "plugins": [
     {
-      "name": "code-review-toolkit",
-      "source": "./code-review-toolkit",
+      "name": "review-tool",
+      "source": "./review-tool",
       "description": "Code review toolkit. Includes code review expert for various tech stacks and software development practices.",
       "version": "1.0.0",
       "author": {
