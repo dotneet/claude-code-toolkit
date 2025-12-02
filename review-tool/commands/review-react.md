@@ -1,1 +1,1 @@
-Review the codes using review-tool:code-modularization-evaluator skill.
+Review the codes using review-tool:typescript-react-reviewer skill.
