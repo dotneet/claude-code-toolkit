@@ -94,7 +94,7 @@ Perform web searches, research, and reasoning using the Perplexity API. Requires
 
 #### context7
 
-Retrieve the latest library documentation using Context7. Prevents hallucinations from outdated training data.
+Retrieve the latest library documentation using Context7. Prevents hallucinations from outdated training data. Requires `CONTEXT7_API_KEY` environment variable.
 
 **Use when:**
 - Checking how to use a library's API
