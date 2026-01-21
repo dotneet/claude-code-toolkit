@@ -21,6 +21,7 @@ fi
 ## Requesting a Task to cursor-agent
 
 ```bash
+# If the model is not specified, the default model is composer-1.
 model=composer-1
 cursor-agent --model=$model <<EOT
 {task_description}

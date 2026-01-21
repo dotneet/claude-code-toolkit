@@ -23,7 +23,6 @@ fi
 This task may take a long time. If the timeout value of the Bash tool can be set, please specify the maximum timeout value.
 
 ```bash
-
 codex exec --sandbox danger-full-access <<EOT
 {task_description}
 EOT
