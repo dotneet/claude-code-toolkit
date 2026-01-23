@@ -8,16 +8,20 @@ description: Google Calendar + Tasks API access without MCP. Use when you need t
 ## Quick start
 
 - Create a Google Cloud OAuth client (Desktop app) and save the credentials JSON to `~/.config/google-calendar/credentials.json`.
-- Install dependencies: `python3 -m pip install -r <skill_dir>/scripts/requirements.txt`.
+- Install dependencies (venv recommended):
+  ```bash
+  python3 -m venv ~/.config/google-calendar/venv
+  ~/.config/google-calendar/venv/bin/pip install -r <skill_dir>/scripts/requirements.txt
+  ```
 - Authenticate and store a token:
   - Calendar only:
-    - `python3 <skill_dir>/scripts/gcal_auth.py`
+    - `<skill_dir>/scripts/gcal-auth`
   - Tasks only:
-    - `python3 <skill_dir>/scripts/gcal_auth.py --scopes https://www.googleapis.com/auth/tasks`
+    - `<skill_dir>/scripts/gcal-auth --scopes https://www.googleapis.com/auth/tasks`
   - Calendar + Tasks (single token):
-    - `python3 <skill_dir>/scripts/gcal_auth.py --scopes https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/tasks`
+    - `<skill_dir>/scripts/gcal-auth --scopes https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/tasks`
 - Call the API:
-  - `python3 <skill_dir>/scripts/gcal_api.py list-calendars`
+  - `<skill_dir>/scripts/gcal list-calendars`
 
 ## Credentials and tokens
 
@@ -34,35 +38,35 @@ description: Google Calendar + Tasks API access without MCP. Use when you need t
 ## Common commands
 
 - List calendars:
-  - `python3 <skill_dir>/scripts/gcal_api.py list-calendars`
+  - `<skill_dir>/scripts/gcal list-calendars`
 - List events:
-  - `python3 <skill_dir>/scripts/gcal_api.py list-events --calendar-id primary --time-min 2026-01-22T00:00:00-08:00 --time-max 2026-01-22T23:59:59-08:00`
+  - `<skill_dir>/scripts/gcal list-events --calendar-id primary --time-min 2026-01-22T00:00:00-08:00 --time-max 2026-01-22T23:59:59-08:00`
 - Search events:
-  - `python3 <skill_dir>/scripts/gcal_api.py list-events --calendar-id primary --q "standup" --time-min ... --time-max ...`
+  - `<skill_dir>/scripts/gcal list-events --calendar-id primary --q "standup" --time-min ... --time-max ...`
 - Create event (simple):
-  - `python3 <skill_dir>/scripts/gcal_api.py create-event --calendar-id primary --summary "Review" --start 2026-01-22T10:00:00-08:00 --end 2026-01-22T11:00:00-08:00`
+  - `<skill_dir>/scripts/gcal create-event --calendar-id primary --summary "Review" --start 2026-01-22T10:00:00-08:00 --end 2026-01-22T11:00:00-08:00`
 - Update event (simple):
-  - `python3 <skill_dir>/scripts/gcal_api.py update-event --calendar-id primary --event-id <id> --summary "New title"`
+  - `<skill_dir>/scripts/gcal update-event --calendar-id primary --event-id <id> --summary "New title"`
 - Delete event:
-  - `python3 <skill_dir>/scripts/gcal_api.py delete-event --calendar-id primary --event-id <id>`
+  - `<skill_dir>/scripts/gcal delete-event --calendar-id primary --event-id <id>`
 - Free/busy:
-  - `python3 <skill_dir>/scripts/gcal_api.py freebusy --calendars primary,team@company.com --time-min ... --time-max ...`
+  - `<skill_dir>/scripts/gcal freebusy --calendars primary,team@company.com --time-min ... --time-max ...`
 - List task lists:
-  - `python3 <skill_dir>/scripts/gcal_api.py list-tasklists`
+  - `<skill_dir>/scripts/gcal list-tasklists`
 - List tasks:
-  - `python3 <skill_dir>/scripts/gcal_api.py list-tasks --tasklist <tasklist_id>`
+  - `<skill_dir>/scripts/gcal list-tasks --tasklist <tasklist_id>`
 - Create task:
-  - `python3 <skill_dir>/scripts/gcal_api.py create-task --tasklist <tasklist_id> --title "Buy milk" --due 2026-01-22T10:00:00-08:00`
+  - `<skill_dir>/scripts/gcal create-task --tasklist <tasklist_id> --title "Buy milk" --due 2026-01-22T10:00:00-08:00`
 - Update task:
-  - `python3 <skill_dir>/scripts/gcal_api.py update-task --tasklist <tasklist_id> --task-id <id> --notes "Bring receipt"`
+  - `<skill_dir>/scripts/gcal update-task --tasklist <tasklist_id> --task-id <id> --notes "Bring receipt"`
 - Delete task:
-  - `python3 <skill_dir>/scripts/gcal_api.py delete-task --tasklist <tasklist_id> --task-id <id>`
+  - `<skill_dir>/scripts/gcal delete-task --tasklist <tasklist_id> --task-id <id>`
 
 ## Advanced usage
 
 - Use `call` to hit any Calendar API endpoint:
-  - `python3 <skill_dir>/scripts/gcal_api.py call GET /users/me/calendarList`
-  - `python3 <skill_dir>/scripts/gcal_api.py call POST /calendars/primary/events --body-file /path/to/event.json`
+  - `<skill_dir>/scripts/gcal call GET /users/me/calendarList`
+  - `<skill_dir>/scripts/gcal call POST /calendars/primary/events --body-file /path/to/event.json`
 - Use `--body-file` or `--body` (JSON string) for complex payloads (attendees, recurrence, conferenceData).
 - Run multiple accounts by using different token files with `--token`.
 

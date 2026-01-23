@@ -9,11 +9,14 @@ It is useful for listing/creating/updating events and tasks without using the MC
 - Google Cloud project with the **Google Calendar API** and **Google Tasks API** enabled
 - OAuth client credentials (Desktop app)
 
-Install dependencies:
+Install dependencies (venv recommended):
 
 ```bash
-python3 -m pip install -r .codex/skills/google-calendar/scripts/requirements.txt
+python3 -m venv ~/.config/google-calendar/venv
+~/.config/google-calendar/venv/bin/pip install -r <skill_dir>/scripts/requirements.txt
 ```
+
+The wrapper scripts (`gcal`, `gcal-auth`) automatically use the venv at `~/.config/google-calendar/venv` if it exists.
 
 ## Credentials (OAuth client)
 
@@ -33,20 +36,20 @@ Authenticate and store a token:
 - Calendar only:
 
 ```bash
-python3 .codex/skills/google-calendar/scripts/gcal_auth.py
+<skill_dir>/scripts/gcal-auth
 ```
 
 - Tasks only:
 
 ```bash
-python3 .codex/skills/google-calendar/scripts/gcal_auth.py \
+<skill_dir>/scripts/gcal-auth \
   --scopes https://www.googleapis.com/auth/tasks
 ```
 
 - Calendar + Tasks (single token):
 
 ```bash
-python3 .codex/skills/google-calendar/scripts/gcal_auth.py \
+<skill_dir>/scripts/gcal-auth \
   --scopes https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/tasks
 ```
 
@@ -77,13 +80,13 @@ You can override the token path with either:
 List calendars:
 
 ```bash
-python3 .codex/skills/google-calendar/scripts/gcal_api.py list-calendars
+<skill_dir>/scripts/gcal list-calendars
 ```
 
 List events:
 
 ```bash
-python3 .codex/skills/google-calendar/scripts/gcal_api.py list-events \
+<skill_dir>/scripts/gcal list-events \
   --calendar-id primary \
   --time-min 2026-01-01T00:00:00-08:00 \
   --time-max 2026-02-01T00:00:00-08:00
@@ -92,7 +95,7 @@ python3 .codex/skills/google-calendar/scripts/gcal_api.py list-events \
 Create an event:
 
 ```bash
-python3 .codex/skills/google-calendar/scripts/gcal_api.py create-event \
+<skill_dir>/scripts/gcal create-event \
   --calendar-id primary \
   --summary "Review" \
   --start 2026-01-22T10:00:00-08:00 \
@@ -102,20 +105,20 @@ python3 .codex/skills/google-calendar/scripts/gcal_api.py create-event \
 List task lists:
 
 ```bash
-python3 .codex/skills/google-calendar/scripts/gcal_api.py list-tasklists
+<skill_dir>/scripts/gcal list-tasklists
 ```
 
 List tasks:
 
 ```bash
-python3 .codex/skills/google-calendar/scripts/gcal_api.py list-tasks \
+<skill_dir>/scripts/gcal list-tasks \
   --tasklist <tasklist_id>
 ```
 
 Create a task:
 
 ```bash
-python3 .codex/skills/google-calendar/scripts/gcal_api.py create-task \
+<skill_dir>/scripts/gcal create-task \
   --tasklist <tasklist_id> \
   --title "Buy milk" \
   --due 2026-01-22T10:00:00-08:00
@@ -131,4 +134,3 @@ python3 .codex/skills/google-calendar/scripts/gcal_api.py create-task \
 
 - Confirm intent before creating/updating/deleting events or tasks.
 - Keep OAuth credentials and token files out of git.
-
