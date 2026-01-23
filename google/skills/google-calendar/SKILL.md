@@ -1,6 +1,6 @@
 ---
 name: google-calendar
-description: Google Calendar + Tasks API access without MCP. Use when you need to read or modify calendars/events or tasklists/tasks using OAuth 2.0 and the bundled scripts.
+description: Accesses the Google Calendar and Tasks API. Use this skill to view or manage calendars, events, schedules, or Google tasks.
 ---
 
 # Google Calendar + Tasks Access

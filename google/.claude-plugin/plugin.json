@@ -1,7 +1,7 @@
 {
   "name": "google",
   "description": "Google services integration including Calendar and Tasks API access.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/dotneet/claude-code-marketplace",
   "repository": "https://github.com/dotneet/claude-code-marketplace",
   "license": "MIT",
