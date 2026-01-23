@@ -50,6 +50,15 @@
       "author": {
         "name": "Shinji Yamada"
       }
+    },
+    {
+      "name": "prompt",
+      "source": "./prompt",
+      "description": "Tools for improving and optimizing prompts for Claude Code.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Shinji Yamada"
+      }
     }
   ]
 }
